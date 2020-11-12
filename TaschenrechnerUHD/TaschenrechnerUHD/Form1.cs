@@ -15,6 +15,8 @@ namespace TaschenrechnerUHD
         public Form1()
         {
             InitializeComponent();
+            txbAktuelleRechung.ResetText();
+            txb_1.ResetText();
         }
 
         public double wert1;
@@ -42,6 +44,11 @@ namespace TaschenrechnerUHD
         {
             addition = true;
             wert1 = Convert.ToDouble(txb_1.Text);
+            txb_1.ResetText();
+            txbAktuelleRechung.Text = Convert.ToString(wert1);
+            txbAktuelleRechung.AppendText(" +");
+            txb_1.Text = "+";
+          
         }
 
         private void txb_1_TextChanged(object sender, EventArgs e)
@@ -53,10 +60,18 @@ namespace TaschenrechnerUHD
         {
             if(addition == true)
             {
+                
                 wert2 = Convert.ToDouble(txb_1.Text);
+                txb_1.ResetText();
+                txbAktuelleRechung.AppendText(Convert.ToString(wert2));
+                txbAktuelleRechung.AppendText(" = ");
                 ergebnis = Berechnungen.Addition(wert1, wert2);
                 txb_1.Text = Convert.ToString(ergebnis);
+                txbAktuelleRechung.AppendText(" "+ Convert.ToString(ergebnis));
             }
+
+            addition = false;
+            
         }
 
         private void btn_1_Click(object sender, EventArgs e)
@@ -107,6 +122,7 @@ namespace TaschenrechnerUHD
         private void btn_allesloeschen_Click(object sender, EventArgs e)
         {
             txb_1.ResetText();
+            txbAktuelleRechung.ResetText()
         }
 
         private void btn_0_Click(object sender, EventArgs e)
@@ -117,6 +133,11 @@ namespace TaschenrechnerUHD
         private void btn_kommatar_Click(object sender, EventArgs e)
         {
             txb_1.Text = txb_1.Text + ",";
+        }
+
+        private void txbAktuelleRechung_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

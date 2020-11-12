@@ -59,6 +59,7 @@
             this.entwicklerModusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.programmierungToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rechnerSystemtechnikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txbAktuelleRechung = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -190,7 +191,7 @@
             this.txb_1.Location = new System.Drawing.Point(12, 54);
             this.txb_1.Multiline = true;
             this.txb_1.Name = "txb_1";
-            this.txb_1.Size = new System.Drawing.Size(378, 143);
+            this.txb_1.Size = new System.Drawing.Size(378, 87);
             this.txb_1.TabIndex = 11;
             this.txb_1.Text = "0";
             this.txb_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -338,14 +339,14 @@
             this.entwicklerModusToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(402, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(402, 30);
             this.menuStrip1.TabIndex = 25;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(150, 24);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(150, 26);
             this.toolStripMenuItem1.Text = "Rechner (Standard)";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
@@ -355,7 +356,7 @@
             this.programmierungToolStripMenuItem,
             this.rechnerSystemtechnikToolStripMenuItem});
             this.entwicklerModusToolStripMenuItem.Name = "entwicklerModusToolStripMenuItem";
-            this.entwicklerModusToolStripMenuItem.Size = new System.Drawing.Size(139, 24);
+            this.entwicklerModusToolStripMenuItem.Size = new System.Drawing.Size(139, 26);
             this.entwicklerModusToolStripMenuItem.Text = "Entwickler Modus";
             // 
             // programmierungToolStripMenuItem
@@ -370,11 +371,22 @@
             this.rechnerSystemtechnikToolStripMenuItem.Size = new System.Drawing.Size(247, 26);
             this.rechnerSystemtechnikToolStripMenuItem.Text = "Rechner & Systemtechnik";
             // 
+            // txbAktuelleRechung
+            // 
+            this.txbAktuelleRechung.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbAktuelleRechung.Location = new System.Drawing.Point(13, 148);
+            this.txbAktuelleRechung.Name = "txbAktuelleRechung";
+            this.txbAktuelleRechung.Size = new System.Drawing.Size(377, 34);
+            this.txbAktuelleRechung.TabIndex = 26;
+            this.txbAktuelleRechung.Text = "123";
+            this.txbAktuelleRechung.TextChanged += new System.EventHandler(this.txbAktuelleRechung_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(402, 664);
+            this.Controls.Add(this.txbAktuelleRechung);
             this.Controls.Add(this.btn_hoch2);
             this.Controls.Add(this.btn_wurzel);
             this.Controls.Add(this.btn_1durchx);
@@ -445,6 +457,7 @@
         private System.Windows.Forms.ToolStripMenuItem entwicklerModusToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem programmierungToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rechnerSystemtechnikToolStripMenuItem;
+        private System.Windows.Forms.TextBox txbAktuelleRechung;
     }
 }
 
