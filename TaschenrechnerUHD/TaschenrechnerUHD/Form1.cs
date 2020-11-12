@@ -153,7 +153,7 @@ namespace TaschenrechnerUHD
 
             else if (rechenZeichenAbfrage[1])
             {
-                btn_addition.BackColor = SystemColors.ControlLight;
+                btn_subtraktion.BackColor = SystemColors.ControlLight;
                 wert2 = Convert.ToDouble(txb_1.Text);
                 txb_1.ResetText();             
                 ergebnis = Berechnungen.Subtraktion(wert1, wert2);
@@ -161,9 +161,16 @@ namespace TaschenrechnerUHD
 
             else if (rechenZeichenAbfrage[2])
             {
-
+                btn_multiplikation.BackColor = SystemColors.ControlLight;
+                wert2 = Convert.ToDouble(txb_1.Text);
+                txb_1.ResetText();
+                ergebnis = Berechnungen.Multiplikation(wert1, wert2);
             }
 
+            else if (rechenZeichenAbfrage[3])
+            {
+
+            }
 
 
             else
@@ -192,7 +199,7 @@ namespace TaschenrechnerUHD
             wert1 = Convert.ToDouble(txb_1.Text);
             txb_1.ResetText();
             txbAktuelleRechung.Text = Convert.ToString(wert1);
-            txbAktuelleRechung.AppendText(" +");
+            txbAktuelleRechung.AppendText(" + ");
             
 
         }
@@ -204,7 +211,7 @@ namespace TaschenrechnerUHD
             wert1 = Convert.ToDouble(txb_1.Text);
             txb_1.ResetText();
             txbAktuelleRechung.Text = Convert.ToString(wert1);
-            txbAktuelleRechung.AppendText(" -");
+            txbAktuelleRechung.AppendText(" - ");
             
         }
 
@@ -227,6 +234,16 @@ namespace TaschenrechnerUHD
                 txb_1.Text = "0";
             }
 
+        }
+
+        private void btn_multiplikation_Click(object sender, EventArgs e)
+        {
+            btn_subtraktion.BackColor = Color.Green;
+            rechenZeichenAbfrage[2] = true;
+            wert1 = Convert.ToDouble(txb_1.Text);
+            txb_1.ResetText();
+            txbAktuelleRechung.Text = Convert.ToString(wert1);
+            txbAktuelleRechung.AppendText(" x ");
         }
     }
 }
