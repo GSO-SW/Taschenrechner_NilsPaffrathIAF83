@@ -39,8 +39,20 @@ namespace TaschenrechnerUHD
             return ergebnis;
         }
 
-        public static double Potenzrechnung(double wert1, double wert2)
+        public static double PotenzrechnungHoch2(double wert1)
         {
+            ergebnis = wert1 * wert1;
+            return ergebnis;
+        }
+
+        public static double PotenzrechnungXHochY(double wert1,int hochzahl)
+        {
+            double zwischenergebnis = wert1;
+            for (int i = 1; i < hochzahl; i++)
+            {
+                ergebnis = zwischenergebnis * wert1;
+                zwischenergebnis = ergebnis;
+            }
             return ergebnis;
         }
 

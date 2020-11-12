@@ -60,6 +60,7 @@
             this.programmierungToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rechnerSystemtechnikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txbAktuelleRechung = new System.Windows.Forms.TextBox();
+            this.btnXhochY = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -360,6 +361,7 @@
             this.btn_hoch2.TabIndex = 24;
             this.btn_hoch2.Text = "X²";
             this.btn_hoch2.UseVisualStyleBackColor = true;
+            this.btn_hoch2.Click += new System.EventHandler(this.btn_hoch2_Click);
             // 
             // menuStrip1
             // 
@@ -413,11 +415,24 @@
             this.txbAktuelleRechung.Text = "123";
             this.txbAktuelleRechung.TextChanged += new System.EventHandler(this.txbAktuelleRechung_TextChanged);
             // 
+            // btnXhochY
+            // 
+            this.btnXhochY.Font = new System.Drawing.Font("Borealis", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXhochY.Image = ((System.Drawing.Image)(resources.GetObject("btnXhochY.Image")));
+            this.btnXhochY.Location = new System.Drawing.Point(11, 160);
+            this.btnXhochY.Margin = new System.Windows.Forms.Padding(2);
+            this.btnXhochY.Name = "btnXhochY";
+            this.btnXhochY.Size = new System.Drawing.Size(68, 50);
+            this.btnXhochY.TabIndex = 27;
+            this.btnXhochY.UseVisualStyleBackColor = true;
+            this.btnXhochY.Click += new System.EventHandler(this.btnXhochY_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(302, 540);
+            this.Controls.Add(this.btnXhochY);
             this.Controls.Add(this.txbAktuelleRechung);
             this.Controls.Add(this.btn_hoch2);
             this.Controls.Add(this.btn_wurzel);
@@ -491,6 +506,7 @@
         private System.Windows.Forms.ToolStripMenuItem programmierungToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rechnerSystemtechnikToolStripMenuItem;
         private System.Windows.Forms.TextBox txbAktuelleRechung;
+        private System.Windows.Forms.Button btnXhochY;
     }
 }
 

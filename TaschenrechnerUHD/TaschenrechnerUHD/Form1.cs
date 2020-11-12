@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace TaschenrechnerUHD
 {
@@ -25,6 +26,7 @@ namespace TaschenrechnerUHD
         public bool[] rechenZeichenAbfrage = new bool[8];
         //0 = addition, 1 = subtraktion, 2 = multiplikation, 3 = division, 4 = Wurzel, 5 = Potenz, 6 = Prozent, 7 = Wurzel auflösen 1/x
         public bool erstesZeichen = false;
+        public bool potenzangabe = false;
 
 
         private void Form1_Load(object sender, EventArgs e)
@@ -251,10 +253,19 @@ namespace TaschenrechnerUHD
 
             else if (rechenZeichenAbfrage[3])
             {
-                btn_multiplikation.BackColor = SystemColors.ControlLight;
+                btn_division.BackColor = SystemColors.ControlLight;
                 wert2 = Convert.ToDouble(txb_1.Text);
                 txb_1.ResetText();
                 ergebnis = Berechnungen.Division(wert1, wert2);
+            }
+
+            else if (rechenZeichenAbfrage[4])
+            {
+                int potenz;
+                btnXhochY.BackColor = SystemColors.ControlLight;
+                potenz = Convert.ToInt32(txb_1.Text);
+                txb_1.ResetText();
+                ergebnis = Berechnungen.PotenzrechnungXHochY(wert1, potenz);
             }
 
 
@@ -327,7 +338,7 @@ namespace TaschenrechnerUHD
 
         private void btn_multiplikation_Click(object sender, EventArgs e)
         {
-            btn_subtraktion.BackColor = Color.Green;
+            btn_multiplikation.BackColor = Color.Green;
             rechenZeichenAbfrage[2] = true;
             wert1 = Convert.ToDouble(txb_1.Text);
             txb_1.ResetText();
@@ -338,7 +349,7 @@ namespace TaschenrechnerUHD
 
         private void btn_division_Click(object sender, EventArgs e)
         {
-            btn_subtraktion.BackColor = Color.Green;
+            btn_division.BackColor = Color.Green;
             rechenZeichenAbfrage[3] = true;
             wert1 = Convert.ToDouble(txb_1.Text);
             txb_1.ResetText();
@@ -346,5 +357,38 @@ namespace TaschenrechnerUHD
             txbAktuelleRechung.AppendText(" : ");
             erstesZeichen = false;
         }
+
+        private void btn_hoch2_Click(object sender, EventArgs e)
+        {
+            
+            wert1 = Convert.ToDouble(txb_1.Text);
+            txb_1.ResetText();
+            txbAktuelleRechung.Text = Convert.ToString(wert1);
+            txbAktuelleRechung.AppendText("² ");
+            erstesZeichen = false;
+
+            btn_multiplikation.BackColor = SystemColors.ControlLight;
+            txb_1.ResetText();
+            ergebnis = Berechnungen.PotenzrechnungHoch2(wert1);
+
+            txbAktuelleRechung.AppendText(" = ");
+            txb_1.Text = Convert.ToString(ergebnis);
+            txbAktuelleRechung.AppendText(" " + Convert.ToString(ergebnis));
+            erstesZeichen = false;
+
+        }
+
+        private void btnXhochY_Click(object sender, EventArgs e)
+        {
+            btnXhochY.BackColor = Color.Green;
+            rechenZeichenAbfrage[4] = true;
+            wert1 = Convert.ToDouble(txb_1.Text);
+            txb_1.ResetText();
+            txbAktuelleRechung.Text = Convert.ToString(wert1);
+            txbAktuelleRechung.AppendText(" ^ ");
+            erstesZeichen = false;
+        }
+
+        
     }
 }
