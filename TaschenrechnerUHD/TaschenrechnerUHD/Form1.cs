@@ -251,7 +251,10 @@ namespace TaschenrechnerUHD
 
             else if (rechenZeichenAbfrage[3])
             {
-
+                btn_multiplikation.BackColor = SystemColors.ControlLight;
+                wert2 = Convert.ToDouble(txb_1.Text);
+                txb_1.ResetText();
+                ergebnis = Berechnungen.Division(wert1, wert2);
             }
 
 
