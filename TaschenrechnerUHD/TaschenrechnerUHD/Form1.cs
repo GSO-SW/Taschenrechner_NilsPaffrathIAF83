@@ -16,13 +16,16 @@ namespace TaschenrechnerUHD
         {
             InitializeComponent();
             txbAktuelleRechung.ResetText();
-            txb_1.ResetText();
+            txb_1.Text = "0";
         }
 
         public double wert1;
         public double wert2;
         public double ergebnis;
+        public bool[] rechenZeichenAbfrage = new bool[8];
+        //0 = addition, 1 = subtraktion, 2 = multiplikation, 3 = division, 4 = Wurzel, 5 = Potenz, 6 = Prozent, 7 = Wurzel auflösen 1/x
         public bool addition;
+        public bool subtraktion;
 
 
         private void Form1_Load(object sender, EventArgs e)
@@ -40,39 +43,14 @@ namespace TaschenrechnerUHD
 
         }
 
-        private void btn_addition_Click(object sender, EventArgs e)
-        {
-            addition = true;
-            wert1 = Convert.ToDouble(txb_1.Text);
-            txb_1.ResetText();
-            txbAktuelleRechung.Text = Convert.ToString(wert1);
-            txbAktuelleRechung.AppendText(" +");
-            txb_1.Text = "+";
-          
-        }
+       
 
         private void txb_1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void btn_gleichZeichen_Click(object sender, EventArgs e)
-        {
-            if(addition == true)
-            {
-                
-                wert2 = Convert.ToDouble(txb_1.Text);
-                txb_1.ResetText();
-                txbAktuelleRechung.AppendText(Convert.ToString(wert2));
-                txbAktuelleRechung.AppendText(" = ");
-                ergebnis = Berechnungen.Addition(wert1, wert2);
-                txb_1.Text = Convert.ToString(ergebnis);
-                txbAktuelleRechung.AppendText(" "+ Convert.ToString(ergebnis));
-            }
-
-            addition = false;
-            
-        }
+        #region ButtonZeichen
 
         private void btn_1_Click(object sender, EventArgs e)
         {
@@ -119,11 +97,6 @@ namespace TaschenrechnerUHD
             txb_1.Text = txb_1.Text + "9";
         }
 
-        private void btn_allesloeschen_Click(object sender, EventArgs e)
-        {
-            txb_1.ResetText();
-            txbAktuelleRechung.ResetText()
-        }
 
         private void btn_0_Click(object sender, EventArgs e)
         {
@@ -135,7 +108,80 @@ namespace TaschenrechnerUHD
             txb_1.Text = txb_1.Text + ",";
         }
 
+        private void btn_allesloeschen_Click(object sender, EventArgs e)
+        {
+            txb_1.Text = "0";
+            txbAktuelleRechung.ResetText();
+        }
+
+        #endregion
+
         private void txbAktuelleRechung_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        #region RechenzeichenMitFunktion
+        private void btn_gleichZeichen_Click(object sender, EventArgs e)
+        {
+            if (rechenZeichenAbfrage[0])
+            {
+                btn_addition.BackColor = SystemColors.ControlLight;
+                wert2 = Convert.ToDouble(txb_1.Text);
+                txb_1.ResetText();
+                txbAktuelleRechung.AppendText(Convert.ToString(wert2));
+                txbAktuelleRechung.AppendText(" = ");
+                ergebnis = Berechnungen.Addition(wert1, wert2);
+                txb_1.Text = Convert.ToString(ergebnis);
+                txbAktuelleRechung.AppendText(" " + Convert.ToString(ergebnis));
+                rechenZeichenAbfrage[0] = false;
+
+            }
+
+            if (rechenZeichenAbfrage[1])
+            {
+                btn_addition.BackColor = SystemColors.ControlLight;
+                wert2 = Convert.ToDouble(txb_1.Text);
+                txb_1.ResetText();
+                txbAktuelleRechung.AppendText(Convert.ToString(wert2));
+                txbAktuelleRechung.AppendText(" = ");
+                ergebnis = Berechnungen.Subtraktion(wert1, wert2);
+                txb_1.Text = Convert.ToString(ergebnis);
+                txbAktuelleRechung.AppendText(" " + Convert.ToString(ergebnis));
+                rechenZeichenAbfrage[1] = false;
+            }
+
+            addition = false;
+
+        }
+
+        private void btn_addition_Click(object sender, EventArgs e)
+        {
+            btn_addition.BackColor = Color.Green;
+            rechenZeichenAbfrage[0] = true;
+            wert1 = Convert.ToDouble(txb_1.Text);
+            txb_1.ResetText();
+            txbAktuelleRechung.Text = Convert.ToString(wert1);
+            txbAktuelleRechung.AppendText(" +");
+            
+
+        }
+
+        private void btn_subtraktion_Click(object sender, EventArgs e)
+        {
+            btn_subtraktion.BackColor = Color.Green;
+            rechenZeichenAbfrage[1] = true;
+            wert1 = Convert.ToDouble(txb_1.Text);
+            txb_1.ResetText();
+            txbAktuelleRechung.Text = Convert.ToString(wert1);
+            txbAktuelleRechung.AppendText(" -");
+            
+        }
+
+
+        #endregion
+
+        private void btn_letztesZeichenLöschen_Click(object sender, EventArgs e)
         {
 
         }

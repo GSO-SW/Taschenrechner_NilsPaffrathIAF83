@@ -15,6 +15,14 @@ namespace TaschenrechnerUHD
             return ergebnis;
         }
 
+        public static double Subtraktion(double wert1, double wert2)
+        {
+            double ergebnis;
+            ergebnis = wert1 - wert2;
+            return ergebnis;
+
+        }
+
 
 
     }
