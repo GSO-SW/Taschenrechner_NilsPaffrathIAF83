@@ -53,63 +53,145 @@ namespace TaschenrechnerUHD
 
         private void btn_1_Click(object sender, EventArgs e)
         {
-            txb_1.Text = txb_1.Text + "1";
-            erstesZeichen = true;
+            if(!erstesZeichen)
+            {
+                txb_1.Text = "1";
+                erstesZeichen = true;
+            }
+
+            else
+            {
+                txb_1.Text = txb_1.Text + "1";
+            }
+            
+            
         }
 
         private void btn_2_Click(object sender, EventArgs e)
         {
-            txb_1.Text = txb_1.Text + "2";
-            erstesZeichen = true;
+            if (!erstesZeichen)
+            {
+                txb_1.Text = "2";
+                erstesZeichen = true;
+            }
+
+            else
+            {
+                txb_1.Text = txb_1.Text + "2";
+            }
         }
 
         private void btn_3_Click(object sender, EventArgs e)
         {
-            txb_1.Text = txb_1.Text + "3";
-            erstesZeichen = true;
+            if (!erstesZeichen)
+            {
+                txb_1.Text = "3";
+                erstesZeichen = true;
+            }
+
+            else
+            {
+                txb_1.Text = txb_1.Text + "3";
+            }
         }
 
         private void btn_4_Click(object sender, EventArgs e)
         {
-            txb_1.Text = txb_1.Text + "4";
-            erstesZeichen = true;
+            if (!erstesZeichen)
+            {
+                txb_1.Text = "4";
+                erstesZeichen = true;
+            }
+
+            else
+            {
+                txb_1.Text = txb_1.Text + "4";
+            }
         }
 
         private void btn_5_Click(object sender, EventArgs e)
         {
-            txb_1.Text = txb_1.Text + "5";
-            erstesZeichen = true;
+            if (!erstesZeichen)
+            {
+                txb_1.Text = "5";
+                erstesZeichen = true;
+            }
+
+            else
+            {
+                txb_1.Text = txb_1.Text + "5";
+            }
         }
 
         private void btn_6_Click(object sender, EventArgs e)
         {
-            txb_1.Text = txb_1.Text + "6";
-            erstesZeichen = true;
+            if (!erstesZeichen)
+            {
+                txb_1.Text = "6";
+                erstesZeichen = true;
+            }
+
+            else
+            {
+                txb_1.Text = txb_1.Text + "6";
+            }
         }
 
         private void btn_7_Click(object sender, EventArgs e)
         {
-            txb_1.Text = txb_1.Text + "7";
-            erstesZeichen = true;
+            if (!erstesZeichen)
+            {
+                txb_1.Text = "7";
+                erstesZeichen = true;
+            }
+
+            else
+            {
+                txb_1.Text = txb_1.Text + "7";
+            }
         }
 
         private void btn_8_Click(object sender, EventArgs e)
         {
-            txb_1.Text = txb_1.Text + "8";
-            erstesZeichen = true;
+            if (!erstesZeichen)
+            {
+                txb_1.Text = "8";
+                erstesZeichen = true;
+            }
+
+            else
+            {
+                txb_1.Text = txb_1.Text + "8";
+            }
         }
 
         private void btn_9_Click(object sender, EventArgs e)
         {
-            txb_1.Text = txb_1.Text + "9";
-            erstesZeichen = true;
+            if (!erstesZeichen)
+            {
+                txb_1.Text = "9";
+                erstesZeichen = true;
+            }
+
+            else
+            {
+                txb_1.Text = txb_1.Text + "9";
+            }
         }
 
 
         private void btn_0_Click(object sender, EventArgs e)
         {
-            txb_1.Text = txb_1.Text + "0";
-            erstesZeichen = true;
+            if (!erstesZeichen)
+            {
+                txb_1.Text = "0";
+                erstesZeichen = true;
+            }
+
+            else
+            {
+                txb_1.Text = txb_1.Text + "0";
+            }
         }
 
         private void btn_kommatar_Click(object sender, EventArgs e)
@@ -182,6 +264,7 @@ namespace TaschenrechnerUHD
             txbAktuelleRechung.AppendText(" = ");
             txb_1.Text = Convert.ToString(ergebnis);
             txbAktuelleRechung.AppendText(" " + Convert.ToString(ergebnis));
+            erstesZeichen = false;
 
             for (int i = 0; i < rechenZeichenAbfrage.Length; i++)
             {
@@ -200,7 +283,8 @@ namespace TaschenrechnerUHD
             txb_1.ResetText();
             txbAktuelleRechung.Text = Convert.ToString(wert1);
             txbAktuelleRechung.AppendText(" + ");
-            
+            erstesZeichen = false;
+
 
         }
 
@@ -212,7 +296,8 @@ namespace TaschenrechnerUHD
             txb_1.ResetText();
             txbAktuelleRechung.Text = Convert.ToString(wert1);
             txbAktuelleRechung.AppendText(" - ");
-            
+            erstesZeichen = false;
+
         }
 
 
@@ -232,6 +317,7 @@ namespace TaschenrechnerUHD
             else
             {
                 txb_1.Text = "0";
+                erstesZeichen = false;
             }
 
         }
@@ -244,6 +330,18 @@ namespace TaschenrechnerUHD
             txb_1.ResetText();
             txbAktuelleRechung.Text = Convert.ToString(wert1);
             txbAktuelleRechung.AppendText(" x ");
+            erstesZeichen = false;
+        }
+
+        private void btn_division_Click(object sender, EventArgs e)
+        {
+            btn_subtraktion.BackColor = Color.Green;
+            rechenZeichenAbfrage[3] = true;
+            wert1 = Convert.ToDouble(txb_1.Text);
+            txb_1.ResetText();
+            txbAktuelleRechung.Text = Convert.ToString(wert1);
+            txbAktuelleRechung.AppendText(" : ");
+            erstesZeichen = false;
         }
     }
 }

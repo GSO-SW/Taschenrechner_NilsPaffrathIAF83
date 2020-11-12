@@ -291,6 +291,7 @@
             this.btn_division.TabIndex = 18;
             this.btn_division.Text = "÷";
             this.btn_division.UseVisualStyleBackColor = true;
+            this.btn_division.Click += new System.EventHandler(this.btn_division_Click);
             // 
             // btn_jetzigeZeileLöschen
             // 
