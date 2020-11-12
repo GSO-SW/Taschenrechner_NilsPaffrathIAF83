@@ -171,6 +171,7 @@
             this.btn_gleichZeichen.TabIndex = 10;
             this.btn_gleichZeichen.Text = "=";
             this.btn_gleichZeichen.UseVisualStyleBackColor = true;
+            this.btn_gleichZeichen.Click += new System.EventHandler(this.btn_gleichZeichen_Click);
             // 
             // txb_1
             // 
@@ -183,6 +184,7 @@
             this.txb_1.TabIndex = 11;
             this.txb_1.Text = "0";
             this.txb_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txb_1.TextChanged += new System.EventHandler(this.txb_1_TextChanged);
             // 
             // btn_vorzeichenMinusPlus
             // 
@@ -213,6 +215,7 @@
             this.btn_addition.TabIndex = 14;
             this.btn_addition.Text = "+";
             this.btn_addition.UseVisualStyleBackColor = true;
+            this.btn_addition.Click += new System.EventHandler(this.btn_addition_Click);
             // 
             // btn_subtraktion
             // 
